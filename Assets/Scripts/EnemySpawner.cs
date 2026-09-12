@@ -1,13 +1,5 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    public void SetDestination(Vector2 a, Vector3 b)
-    {
-        
-    }
-}
-
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -41,17 +33,15 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         // Keep the spawner's X, randomly choose Y.
-        Vector3 spawnPosition = new Vector3(
+        Vector2 spawnPosition = new Vector2(
             transform.position.x,
-            Random.Range(0f, maxSpawnY),
-            0f
+            Random.Range(0f, maxSpawnY)
         );
 
         // Random destination Y.
-        Vector3 destination = new Vector3(
+        Vector2 destination = new Vector2(
             destinationX,
-            Random.Range(destinationMinY, destinationMaxY),
-            0f
+            Random.Range(destinationMinY, destinationMaxY)
         );
 
         // Work out direction from spawn -> destination.
