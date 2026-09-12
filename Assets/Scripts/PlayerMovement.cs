@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -31,8 +32,12 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private PlayerStats playerStats;
     bool isInStore = false;
     public bool IsInStore => isInStore;
+    public Animator playerAnimator;
+    bool isFlipped = false; // player is flipped
+    public GameObject playerBody;
 
     private float currentFleyingMotorSpeed = 0f;
+    [SerializeField] private UnityEvent onDeath;
 
     private void Awake()
     {
@@ -43,14 +48,31 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         playerStats.GetBirdsPanel().SetInputActions(inputActions);
     }
 
+    private void Update()
+    {
+        playerAnimator.SetFloat("Velocity", playerRb2d.linearVelocity.magnitude);
+        playerAnimator.SetBool("IsOnGround", IsGrounded);
+        playerAnimator.SetFloat("VelocityY", playerRb2d.linearVelocity.y);
+        playerAnimator.SetBool("IsFleyging", currentState == PlayerState.Fleyging);
+
+        if (walkInput.x > 0 && isFlipped)
+        {
+            isFlipped = false;
+            playerBody.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (walkInput.x < 0 && !isFlipped)
+        {
+            isFlipped = true;
+            playerBody.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+
     private void FixedUpdate()
     {
         if (currentState == PlayerState.Walking)
         {
             bool isGrounded = IsGrounded;
             float currentAcceleration = isGrounded ? acceleration : acceleration * airAccelerationMultiplier;
-
-
 
             float targetSpeed = walkInput.x * walkSpeed;
             bool isAccelerating = Mathf.Abs(walkInput.x) > 0.01f && Mathf.Sign(walkInput.x) == Mathf.Sign(targetSpeed - playerRb2d.linearVelocity.x);
@@ -106,6 +128,11 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
                 }
             }
         }
+    }
+
+    public Vector2 GetPlayerRb2dLinearVelocity()
+    {
+        return playerRb2d.linearVelocity;
     }
 
     public PlayerState GetPlayerState()
@@ -219,6 +246,21 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
                 // Handle any other states if necessary
                 break;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        playerStats.AddToStamina(-damage);
+    }
+
+    public void Die()
+    {
+        // Optionally, trigger a death animation or other visual feedback
+        onDeath?.Invoke();
+        // Implement death logic here, e.g., play death animation, disable controls, etc.
+        inputActions.Player.Disable();
+        inputActions.UI.Disable();
+        // Optionally, trigger a death animation or other visual feedback
     }
 
     public void OnJump(InputAction.CallbackContext context)

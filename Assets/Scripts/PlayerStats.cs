@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float maxStamina = 100f;
     private float currentStamina;
     private int cash = 0;
+    private bool isDead = false;
 
     public int GetCash()
     {
@@ -45,6 +46,12 @@ public class PlayerStats : MonoBehaviour
         if (staminaBar != null)
         {
             staminaBar.SetBarAmount(currentStamina / maxStamina);
+        }
+
+        if (currentStamina <= 0f && !isDead)
+        {
+            isDead = true;
+            playerMovement.Die();
         }
     }
 
@@ -105,5 +112,20 @@ public class PlayerStats : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddToStamina(float amount)
+    {
+        currentStamina += amount;
+        currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
+        if (staminaBar != null)
+        {
+            staminaBar.SetBarAmount(currentStamina / maxStamina);
+        }
+    }
+
+    public float GetCurrentStamina()
+    {
+        return currentStamina;
     }
 }
