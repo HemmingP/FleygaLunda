@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         Destination = destination;
     }
 
-    private Observe()
+    private void Observe()
     {
         GameObject player = GameObject.FindWithTag("Player");
         GameObject catcher = GameObject.FindWithTag("NetCatcher");
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        Observe();
         Vector2 direction = (Destination - (Vector2)transform.position).normalized;
 
         if(DangerSense > 0.1)
