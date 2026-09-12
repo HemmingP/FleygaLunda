@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 503421351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.02, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,8 +217,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6503458579951337690, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
+      propertyPath: m_TagString
+      value: NetCatcher
+      objectReference: {fileID: 0}
     - target: {fileID: 8917133992686321950, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917133992686321950, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -288,7 +296,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9.85
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
