@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public enum PlayerState
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float fleyingDeceleration = 180f;
     [SerializeField] private LayerMask allExceptPlayer;
     [SerializeField] private PlayerStats playerStats;
+    bool isInStore = false;
+    public bool IsInStore => isInStore;
 
     private float currentFleyingMotorSpeed = 0f;
 
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
             playerRb2d = GetComponent<Rigidbody2D>();
         inputActions = new InputSystem_Actions();
         inputActions.Player.SetCallbacks(this);
+        playerStats.GetBirdsPanel().SetInputActions(inputActions);
     }
 
     private void FixedUpdate()
@@ -239,5 +243,23 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (playerStats.birds.Count > 0)
+            {
+                inputActions.Player.Disable();
+                inputActions.UI.Enable();
+                EventSystem.current.SetSelectedGameObject(playerStats.GetBirdsPanel().GetBirdItems()[0]);
+            }
+        }
+    }
+
+    public InputSystem_Actions GetInputActions()
+    {
+        return inputActions;
     }
 }
