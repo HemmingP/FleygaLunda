@@ -6,6 +6,8 @@ public class BirdInPanel : MonoBehaviour
     BirdStat birdStat;
     public TMPro.TextMeshProUGUI hungerReplenish;
     public TMPro.TextMeshProUGUI moneyWorth;
+    int hungerReplenishValue;
+    int moneyWorthValue;
 
     public void SetImage(Sprite newSprite)
     {
@@ -15,8 +17,10 @@ public class BirdInPanel : MonoBehaviour
     public void SetBirdStat(BirdStat newBirdStat)
     {
         birdStat = newBirdStat;
-        hungerReplenish.text = $"🍗 {birdStat.birdWeight * 25}";
-        moneyWorth.text = $"💰 {birdStat.birdWeight * 50}";
+        hungerReplenishValue = Mathf.FloorToInt(birdStat.birdWeight * 25);
+        moneyWorthValue = Mathf.FloorToInt(birdStat.birdWeight * 50);
+        hungerReplenish.text = $"🍗 {hungerReplenishValue}";
+        moneyWorth.text = $"💰 {moneyWorthValue}";
     }
 
     public BirdStat GetBirdStat()
