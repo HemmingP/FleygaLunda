@@ -1361,6 +1361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   birdsAmount: {fileID: 0}
+  birdsListContainer: {fileID: 0}
+  birdItemPrefab: {fileID: 0}
 --- !u!1 &2078352677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,8 +1633,16 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 410732330}
+    - target: {fileID: 6503458579951337690, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
+      propertyPath: m_TagString
+      value: NetCatcher
+      objectReference: {fileID: 0}
     - target: {fileID: 8917133992686321950, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917133992686321950, guid: 618e21614abf8ad4fb5fc70bff2c800d, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
