@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         GameObject catcher = GameObject.FindWithTag("NetCatcher");
 
-        DangerSense = player.transform.Y - catcher.transform.Y;
+        DangerSense = player.transform.position.y - catcher.transform.position.y;
     }
 
 
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         Vector2 direction = (Destination - (Vector2)transform.position).normalized;
 
         if(DangerSense > 0.1)
-            direction.Y = 100;
+            direction.y = 100;
 
         transform.position += (Vector3)(direction * Speed * Time.deltaTime);
 
