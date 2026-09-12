@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hemming Test Scene.unity
     guid: b34ae9217ba2d374f824e577607f3bbf
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: fe75725b2bfe75c16a6e3d8502c66f30
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: a1031a410e8e8bed7877713a49bbbf4b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
