@@ -4,6 +4,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BarHorizontalAmount staminaBar;
+    [SerializeField] private BirdsPanel birdsPanel;
     [SerializeField] private float maxStamina = 100f;
     private float currentStamina;
 
@@ -35,6 +36,10 @@ public class PlayerStats : MonoBehaviour
         if (bird != null && !birds.Contains(bird) && birds.Count < maxBirdsInInventory)
         {
             birds.Add(bird);
+            if (birdsPanel != null)
+            {
+                birdsPanel.WriteBirdsInfo(birds.ToArray(), maxBirdsInInventory);
+            }
             if (birds.Count >= maxBirdsInInventory)
             {
                 if (playerMovement.GetPlayerState() == PlayerState.Fleyging)

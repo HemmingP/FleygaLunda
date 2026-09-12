@@ -6,13 +6,10 @@ public class BirdsPanel : MonoBehaviour
     [SerializeField] private Transform birdsListContainer;
     [SerializeField] private GameObject birdItemPrefab;
 
-    public void WriteBirdsAmount(int amount, int maxAmount)
+    public void WriteBirdsInfo(BirdStat[] birdStats, int maxAmount)
     {
-        birdsAmount.text = amount.ToString() + " / " + maxAmount.ToString();
-    }
+        birdsAmount.text = birdStats.Length.ToString() + " / " + maxAmount.ToString();
 
-    public void WriteBirdsList(BirdStat[] birdStats)
-    {
         foreach (Transform child in birdsListContainer)
         {
             Destroy(child.gameObject);
@@ -21,10 +18,10 @@ public class BirdsPanel : MonoBehaviour
         foreach (var birdStat in birdStats)
         {
             GameObject birdItem = Instantiate(birdItemPrefab, birdsListContainer);
-            TMPro.TMP_Text birdText = birdItem.GetComponent<TMPro.TMP_Text>();
-            if (birdText != null)
+            BirdInPanel birdInPanel = birdItem.GetComponent<BirdInPanel>();
+            if (birdInPanel != null)
             {
-                birdText.text = birdStat.name;
+                birdInPanel.SetBirdStat(birdStat);
             }
         }
     }
