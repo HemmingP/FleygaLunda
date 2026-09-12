@@ -10,7 +10,7 @@ public class NetBirdCatcher : MonoBehaviour
         if (bird != null && playerStats != null)
         {
             // Example action: add the bird to the player's list of birds
-            if (playerStats.AddBird(bird))
+            if (playerStats.AddBird(bird.birdInfo))
             {
                 Destroy(collision.gameObject); // Example action: destroy the bird after catching it
             }

@@ -3,28 +3,34 @@ using UnityEngine.UI;
 public class BirdInPanel : MonoBehaviour
 {
     public Image image;
-    BirdStat birdStat;
+    BirdInfo birdInfo;
     public TMPro.TextMeshProUGUI hungerReplenish;
     public TMPro.TextMeshProUGUI moneyWorth;
     int hungerReplenishValue;
     int moneyWorthValue;
+    PlayerStats playerStats;
 
-    public void SetImage(Sprite newSprite)
+    public void SetBirdStat(BirdInfo newBirdInfo, PlayerStats playerStats, Sprite newSprite = null)
     {
         image.sprite = newSprite;
-    }
-
-    public void SetBirdStat(BirdStat newBirdStat)
-    {
-        birdStat = newBirdStat;
-        hungerReplenishValue = Mathf.FloorToInt(birdStat.birdWeight * 25);
-        moneyWorthValue = Mathf.FloorToInt(birdStat.birdWeight * 50);
+        birdInfo = newBirdInfo;
+        hungerReplenishValue = Mathf.FloorToInt(birdInfo.birdWeight * 25);
+        moneyWorthValue = Mathf.FloorToInt(birdInfo.birdWeight * 50);
         hungerReplenish.text = $"🍗 {hungerReplenishValue}";
         moneyWorth.text = $"💰 {moneyWorthValue}";
+        this.playerStats = playerStats;
     }
 
-    public BirdStat GetBirdStat()
+    public BirdInfo GetBirdStat()
     {
-        return birdStat;
+        return birdInfo;
+    }
+
+    public void Select()
+    {
+        if (playerStats != null)
+        {
+            playerStats.HandleBirdSelection(birdInfo);
+        }
     }
 }
