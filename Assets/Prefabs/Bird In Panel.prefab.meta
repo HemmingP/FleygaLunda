@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/EnemyTestScene.unity.meta
+guid: 3c3f3bbffb0f584c59c05388f41c5ad5
+DefaultImporter:
+========
 guid: ee6ca0421fa98414caa4eb4a1dd09b9e
 PrefabImporter:
+>>>>>>>> origin/main:Assets/Prefabs/Bird In Panel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
