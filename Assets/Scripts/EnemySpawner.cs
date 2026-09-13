@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         // Keep the spawner's X, randomly choose Y.
         Vector2 spawnPosition = new Vector2(
             transform.position.x,
-            Random.Range(0f, maxSpawnY)
+            Random.Range(transform.position.y, maxSpawnY)
         );
 
         // Random destination Y.
