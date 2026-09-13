@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [Header("Destination")]
     [SerializeField] public Vector2 Destination;
 
@@ -18,7 +19,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float PanicValue = 100f;
     [SerializeField] public float PanicSense = 5f;
 
-    public bool isFowardFacing = true;
+    [Header("isFowardFacing")]
+    [SerializeField] public bool isFowardFacing = true;
     private bool Danger = false;
     private bool Panic = false;
 
@@ -76,6 +78,11 @@ public class Enemy : MonoBehaviour
             isFowardFacing = false;
         else
             isFowardFacing = true;
+
+        if (isFowardFacing)
+            spriteRenderer.flipX = true;   // Face left
+        else
+            spriteRenderer.flipX = false;  // Face right
 
         // Move forward.
         transform.position += (Vector3)(currentDirection * Speed * Time.deltaTime);
