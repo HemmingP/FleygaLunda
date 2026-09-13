@@ -41,8 +41,8 @@ public class Enemy : MonoBehaviour
 
         if (player != null && catcher != null)
         {
-            PanicValue = catcher.transform.position.y - player.transform.position.y;
-            PanicSense = Vector3.Distance(catcher.transform.position, transform.position);
+            DangerSense = catcher.transform.position.y - player.transform.position.y;
+            PanicValue = Vector3.Distance(catcher.transform.position, transform.position);
         }
         Panic = PanicValue < PanicSense;
         Danger = DangerSense > 0.5f;

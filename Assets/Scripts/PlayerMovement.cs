@@ -262,6 +262,10 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         inputActions.Player.Disable();
         inputActions.UI.Disable();
         // Optionally, trigger a death animation or other visual feedback
+        var lb = LeaderboardManager.Instance;
+        GameObject go = GameObject.FindWithTag("Player");
+        PlayerStats player = go.GetComponent<PlayerStats>();
+        lb.AddScore("test", player.GetCash());
     }
 
     public void OnJump(InputAction.CallbackContext context)
