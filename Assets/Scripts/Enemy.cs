@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float DangerSense = 0f;
 
     [Header("Panic")]
+    [SerializeField] public float PanicValue = 100f;
     [SerializeField] public float PanicSense = 5f;
 
     public bool isFowardFacing = true;
@@ -38,10 +39,10 @@ public class Enemy : MonoBehaviour
 
         if (player != null && catcher != null)
         {
-            DangerSense = catcher.transform.position.y - player.transform.position.y;
+            PanicValue = catcher.transform.position.y - player.transform.position.y;
             PanicSense = Vector3.Distance(catcher.transform.position, transform.position);
         }
-        Panic = PanicSense < 2.5;
+        Panic = PanicValue < PanicSense;
         Danger = DangerSense > 0.5f;
     }
 
