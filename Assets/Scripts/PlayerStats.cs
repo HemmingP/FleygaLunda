@@ -112,7 +112,10 @@ public class PlayerStats : MonoBehaviour
             if (birdsPanel != null)
             {
                 birdsPanel.WriteBirdsInfo();
-                EventSystem.current.SetSelectedGameObject(GetBirdsPanel().GetBirdItems()[0]);
+                if (birds.Count > 0)
+                {
+                    EventSystem.current.SetSelectedGameObject(GetBirdsPanel().GetBirdItems()[0]);
+                }
 
                 if (birds.Count == 0)
                 {

@@ -3,16 +3,10 @@ using UnityEngine.UI;
 
 public class SceneChanger : MonoBehaviour
 {
-    Image blackImage;
+    public Image blackImage;
     public string sceneName;
     public float fadeDuration = 1f;
     private bool fadeInProgress = false;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        blackImage = GetComponent<Image>();
-    }
 
     void Update()
     {
@@ -31,6 +25,6 @@ public class SceneChanger : MonoBehaviour
         // Implement scene change logic here
         // UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         fadeInProgress = true;
-        this.gameObject.SetActive(true);
+        blackImage.gameObject.SetActive(true);
     }
 }
