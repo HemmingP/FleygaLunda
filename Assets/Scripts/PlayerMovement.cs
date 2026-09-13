@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (IsGrounded && playerRb2d.linearVelocity.magnitude < 0.01f)
+        if (IsGrounded && playerRb2d.linearVelocity.magnitude < 0.2f)
         {
             if (currentState == PlayerState.Fleyging)
             {
