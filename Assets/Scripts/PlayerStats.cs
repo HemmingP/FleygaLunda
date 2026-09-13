@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BarHorizontalAmount staminaBar;
     [SerializeField] private BirdsPanel birdsPanel;
+    [SerializeField] private MoneyPanel moneyPanel;
     [SerializeField] private float maxStamina = 100f;
     private float currentStamina;
     private int cash = 0;
@@ -20,6 +21,10 @@ public class PlayerStats : MonoBehaviour
     public void AddCash(int amount)
     {
         cash += amount;
+        if (moneyPanel != null)
+        {
+            moneyPanel.SetMoney(cash);
+        }
     }
 
     public List<BirdInfo> birds;
@@ -35,6 +40,10 @@ public class PlayerStats : MonoBehaviour
         if (birdsPanel != null)
         {
             birdsPanel.SetPlayerStats(this);
+        }
+        if (moneyPanel != null)
+        {
+            moneyPanel.SetMoney(cash);
         }
     }
 

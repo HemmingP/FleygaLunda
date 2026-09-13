@@ -305,4 +305,22 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         return inputActions;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Store"))
+        {
+            // Implement store interaction logic here
+            isInStore = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Store"))
+        {
+            // Implement store exit logic here
+            isInStore = false;
+        }
+    }
 }

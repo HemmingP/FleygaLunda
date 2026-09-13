@@ -456,7 +456,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2, y: -0.5}
+  m_ConnectedAnchor: {x: 0, y: -0.5}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -1999,7 +1999,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.044999838, y: 0.46600002}
+  m_ConnectedAnchor: {x: -0.045000076, y: 0.46600008}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   playerRb2d: {fileID: 2038934454973139827}
   groundDetector: {fileID: 651680471871204355}
   walkSpeed: 5
-  acceleration: 10
+  acceleration: 15
   deceleration: 25
   airAccelerationMultiplier: 0.25
   fleygingJoint: {fileID: 3124392286608286959}
@@ -3061,6 +3061,7 @@ MonoBehaviour:
   playerMovement: {fileID: 9002178331098961116}
   staminaBar: {fileID: 0}
   birdsPanel: {fileID: 0}
+  moneyPanel: {fileID: 0}
   maxStamina: 100
   birds: []
   maxBirdsInInventory: 5

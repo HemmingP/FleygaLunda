@@ -145,10 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   Destination: {x: 0, y: 0}
-  Speed: 2
-  TurnSpeed: 50
+  Speed: 5
+  TurnSpeed: 150
   DangerSense: 0
-  PanicSense: 0
+  PanicSense: 5
+  isFowardFacing: 1
   currentDirection: {x: 0, y: 0}
 --- !u!114 &4763584291463285096
 MonoBehaviour:
