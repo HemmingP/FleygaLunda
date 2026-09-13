@@ -35,7 +35,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -45,6 +45,8 @@ public class LeaderboardManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Load();
+
+        Debug.Log($"LeaderboardManager initialized. Scores: {data.scores.Count}");
     }
 
     public void Highscores()
@@ -55,6 +57,11 @@ public class LeaderboardManager : MonoBehaviour
         {
             Debug.Log($"{i + 1}. {scores[i].name} - {scores[i].score}");
         }
+    }
+
+    public void AddMyScore()
+    {
+        AddScore("Sigmundur", 69);
     }
 
     public void AddScore(string playerName, int score)
@@ -79,7 +86,7 @@ public class LeaderboardManager : MonoBehaviour
 
     public List<HighScoreEntry> GetScores()
     {
-        return data.scores;
+        return new List<HighScoreEntry>(data.scores);
     }
 
     private void Save()
