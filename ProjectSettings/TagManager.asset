@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NetCatcher
   - Store
+  - PlayerStats
   layers:
   - Default
   - TransparentFX
