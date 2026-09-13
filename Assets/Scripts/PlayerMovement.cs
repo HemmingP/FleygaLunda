@@ -265,7 +265,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         var lb = LeaderboardManager.Instance;
         GameObject go = GameObject.FindWithTag("Player");
         PlayerStats player = go.GetComponent<PlayerStats>();
-        lb.AddScore("test", player.GetCash());
+        lb.AddScore("You", player.GetCash() -100);
     }
 
     public void OnJump(InputAction.CallbackContext context)

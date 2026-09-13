@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class HighScoreEntry
@@ -57,6 +58,11 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
+    public void AddMyScore()
+    {
+        AddScore("Sigmundur", 69);
+    }
+
     public void AddScore(string playerName, int score)
     {
         data.scores.Add(new HighScoreEntry(playerName, score));
@@ -67,6 +73,12 @@ public class LeaderboardManager : MonoBehaviour
             data.scores.RemoveRange(maxScores, data.scores.Count - maxScores);
 
         Save();
+    }
+
+
+    public void BackToStart()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
     public bool IsHighScore(int score)
