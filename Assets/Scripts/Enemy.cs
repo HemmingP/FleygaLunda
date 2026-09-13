@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         if (player != null && catcher != null)
         {
             DangerSense = catcher.transform.position.y - player.transform.position.y;
-            PanicSense = Vector3.Distance(catcher.transform.position , transform.position);
+            PanicSense = Vector3.Distance(catcher.transform.position, transform.position);
         }
         Panic = PanicSense < 2.5;
         Danger = DangerSense > 0.5f;
@@ -71,10 +71,10 @@ public class Enemy : MonoBehaviour
             0f
         );
 
-        if(targetDirection.x < transform.position.x)
-            isFlipped = false;
+        if (targetDirection.x < transform.position.x)
+            isFowardFacing = false;
         else
-            isFlipped = true;
+            isFowardFacing = true;
 
         // Move forward.
         transform.position += (Vector3)(currentDirection * Speed * Time.deltaTime);
