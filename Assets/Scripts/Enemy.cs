@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [Header("Panic")]
     [SerializeField] public float PanicSense = 0f;
 
+    public bool isFowardFacing = true;
     private bool Danger = false;
     private bool Panic = false;
 
@@ -48,7 +49,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         Observe();
-        Vector2 targetDirection;
+        Vector2 targetDirection = Destination;
         Vector2 dangerDestination = Destination + new Vector2(0f, 10f);
         Vector2 escapeDestination = Destination + new Vector2(0f, 1000f);
 
@@ -70,6 +71,10 @@ public class Enemy : MonoBehaviour
             0f
         );
 
+        if(targetDirection.x < transform.position.x)
+            isFlipped = false;
+        else
+            isFlipped = true;
 
         // Move forward.
         transform.position += (Vector3)(currentDirection * Speed * Time.deltaTime);
