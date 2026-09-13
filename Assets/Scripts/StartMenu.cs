@@ -18,13 +18,15 @@ public class StartMenu : MonoBehaviour
     {
         Debug.Log("StartNewGamefound.");
     }
-    public void LoadGame()
+    public void Menu()
     {
+        SceneManager.LoadScene("StartScene");
         Debug.Log("LoadGame.");
     }
-    public void Options()
+    public void Leaderboard()
     {
-        Debug.Log("Options.");
+        SceneManager.LoadScene("Leaderboard");
+        Debug.Log("Leaderboard.");
     }
     public void Credits()
     {

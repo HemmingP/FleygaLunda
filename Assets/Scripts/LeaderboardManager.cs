@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class HighScoreEntry
@@ -36,7 +35,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -46,6 +45,8 @@ public class LeaderboardManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Load();
+
+        Debug.Log($"LeaderboardManager initialized. Scores: {data.scores.Count}");
     }
 
     public void Highscores()
@@ -75,12 +76,6 @@ public class LeaderboardManager : MonoBehaviour
         Save();
     }
 
-
-    public void BackToStart()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
     public bool IsHighScore(int score)
     {
         if (data.scores.Count < maxScores)
@@ -91,7 +86,7 @@ public class LeaderboardManager : MonoBehaviour
 
     public List<HighScoreEntry> GetScores()
     {
-        return data.scores;
+        return new List<HighScoreEntry>(data.scores);
     }
 
     private void Save()
