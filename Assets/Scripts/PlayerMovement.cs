@@ -45,7 +45,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
             playerRb2d = GetComponent<Rigidbody2D>();
         inputActions = new InputSystem_Actions();
         inputActions.Player.SetCallbacks(this);
-        playerStats.GetBirdsPanel().SetInputActions(inputActions);
+        if (playerStats.GetBirdsPanel() != null)
+            playerStats.GetBirdsPanel().SetInputActions(inputActions);
     }
 
     private void Update()
@@ -270,7 +271,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
             // if touches anything
             if (IsGrounded && currentState == PlayerState.Walking)
             {
-                playerRb2d.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+                playerRb2d.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
             }
         }
     }
