@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: ca9c3965dc2dc4a4bbe977aaa9edc057
+guid: 7c4dec9cc5368444a85d0b5f7a109ad3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 897089110629237537
-    second: islands_0
-  - first:
-      213: 1371074782014302068
-    second: islands_1
+      213: -2316206707567597089
+    second: handil_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: islands_0
+      name: handil_0
       rect:
         serializedVersion: 2
-        x: 684
-        y: 1210
-        width: 2153
-        height: 381
+        x: 109
+        y: 183
+        width: 1358
+        height: 767
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,30 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1234dea0bc9137c00800000000000000
-      internalID: 897089110629237537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: islands_1
-      rect:
-        serializedVersion: 2
-        x: 2888
-        y: 1234
-        width: 1701
-        height: 462
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 477657eff39070310800000000000000
-      internalID: 1371074782014302068
+      spriteID: fd96e01754e2bdfd0800000000000000
+      internalID: -2316206707567597089
       vertices: []
       indices: 
       edges: []
@@ -152,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -162,8 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      islands_0: 897089110629237537
-      islands_1: 1371074782014302068
+      handil_0: -2316206707567597089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

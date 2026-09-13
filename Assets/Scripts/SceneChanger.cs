@@ -10,11 +10,11 @@ public class SceneChanger : MonoBehaviour
 
     void Update()
     {
-        if (fadeInProgress)
+        if (fadeInProgress && blackImage != null)
         {
             blackImage.color = new Color(0, 0, 0, Mathf.Min(blackImage.color.a + Time.deltaTime / fadeDuration, 1));
         }
-        if (fadeInProgress && blackImage.color.a >= 1)
+        if (fadeInProgress && blackImage != null && blackImage.color.a >= 1)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
@@ -22,8 +22,12 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene()
     {
-        // Implement scene change logic here
-        // UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        if (blackImage == null)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            return;
+        }
+
         fadeInProgress = true;
         blackImage.gameObject.SetActive(true);
     }
