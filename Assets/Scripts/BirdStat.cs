@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+// using UnityEditor.Animations;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +7,7 @@ public class BirdInfo
     public float birdWeight;
     public float birdMinWeight;
     public float birdMaxWeight;
-    public AnimatorController animatorController;
+    // public AnimatorController animatorController;
 }
 
 public class BirdStat : MonoBehaviour
@@ -23,9 +23,9 @@ public class BirdStat : MonoBehaviour
         };
 
         Animator animator = GetComponent<Animator>();
-        if (animator != null && birdInfo.animatorController != null)
-        {
-            animator.runtimeAnimatorController = birdInfo.animatorController;
-        }
+        // if (animator != null && birdInfo.animatorController != null)
+        // {
+        //     animator.runtimeAnimatorController = birdInfo.animatorController;
+        // }
     }
 }
