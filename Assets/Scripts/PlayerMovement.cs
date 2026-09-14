@@ -21,7 +21,19 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float deceleration = 25f;
     [SerializeField] private float airAccelerationMultiplier = 0.25f;
-    bool IsGrounded => groundDetector != null && groundDetector.IsTouchingLayers();
+    private readonly Collider2D[] groundContacts = new Collider2D[1];
+    bool IsGrounded
+    {
+        get
+        {
+            if (groundDetector == null)
+                return false;
+
+            ContactFilter2D filter = ContactFilter2D.noFilter;
+            filter.useTriggers = false;
+            return groundDetector.Overlap(filter, groundContacts) > 0;
+        }
+    }
     [SerializeField] private HingeJoint2D fleygingJoint;
     [SerializeField] private GameObject walkingObject;
     [SerializeField] private GameObject fleygingObject;
@@ -265,7 +277,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         var lb = LeaderboardManager.Instance;
         GameObject go = GameObject.FindWithTag("Player");
         PlayerStats player = go.GetComponent<PlayerStats>();
-        lb.AddScore("You", player.GetCash() -100);
+        lb.AddScore("You", player.GetCash() - 100);
     }
 
     public void OnJump(InputAction.CallbackContext context)
